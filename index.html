@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기온에 따른 자전거 대여량 예측</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚲 자전거 대여량 예측 프로그램</h1>
+      <p>기온을 입력하면 선형회귀 모델을 이용해 예상 자전거 대여량을 계산합니다.</p>
+    </header>
+
+    <main>
+      <section class="card input-card">
+        <h2>기온 입력</h2>
+        <div class="input-row">
+          <input id="temperature" type="number" step="0.1" placeholder="예: 20">
+          <span>℃</span>
+          <button id="predictBtn">예측하기</button>
+        </div>
+        <p class="hint">현재 예제 데이터의 회귀모델로 계산됩니다.</p>
+      </section>
+
+      <section class="result-grid">
+        <div class="card result-card">
+          <h2>예측 결과</h2>
+          <div id="prediction" class="big-number">-</div>
+          <p>예상 자전거 대여량 (대)</p>
+        </div>
+
+        <div class="card">
+          <h2>회귀식</h2>
+          <div id="equation" class="equation">계산 중...</div>
+          <p id="modelInfo"></p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>산점도 및 회귀직선</h2>
+        <canvas id="regressionChart"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>사용 방법</h2>
+        <ol>
+          <li>기온을 ℃ 단위로 입력합니다.</li>
+          <li><strong>예측하기</strong> 버튼을 누릅니다.</li>
+          <li>회귀식에 따라 예상 자전거 대여량이 표시됩니다.</li>
+          <li>아래 그래프에서 실제 데이터와 회귀직선을 확인할 수 있습니다.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>선형회귀 기반 자전거 대여량 예측 프로그램</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
